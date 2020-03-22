@@ -1,0 +1,35 @@
+class Publisher:
+	publisherID=0;
+	def __init__(self):
+		Publisher.publisherID+=1
+		self._publisherID= Publisher.publisherID
+		self._publisherName= input("Publisher Name:")
+		self._foundingYear= input("Founding Year:")
+		self._mainAddress= input("Main address:")
+		self._emailAddress= input("e-Mail address:")
+		self._phoneNumber= input("Main Phone number:")
+	def getID(self):
+		return self.publisherID
+		
+	def getPublisherName(self):
+		return self._publisherName
+	def getFoundingYear(self):
+		return self._foundingYear
+	def getMainAddress(self):
+		return self._mainAddress
+	def getEmail(self):
+		return self._emailAddress
+	def getPhone(self):
+		return self._phoneNumber
+	
+	
+	def setPublisherName(self):
+		self._publisherName= input("Publisher Name:")
+	def setFoundingYear(self):
+		self._foundingYear= input("Founding Year:")
+	def setMainAddress(self):
+		self._mainAddress= input("Main address:")
+	def setEmail(self):
+		self._emailAddress= input("e-Mail address:")
+	def setPhone(self):
+		self._phoneNumber= input("Main Phone number:")
