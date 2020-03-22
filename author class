@@ -1,6 +1,6 @@
 
 class author:
-    id=0
+    authorID=0
 
     def __init__(self):
 
