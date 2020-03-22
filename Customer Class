@@ -1,0 +1,26 @@
+class Customer:
+	def __init__(self):
+		
+		self._customerName      = input ("Customer Name:")
+		self._customerAddress   = input ("Customer Address:")
+		self._customerPhone     = input ("customer Phone:")
+		self._customerBirthyear = input ("customer Birth Year:")
+	
+	def getCustomerName(self):
+		return self._customerName
+	def getBirthYear(self):
+		return self._customerBirthyear
+	def getAddress(self):
+		return self._customerAddress
+	def getPhone(self):
+		return self._customerPhone
+	
+	
+	def setCustomerName(self):
+		self._customerName= input("Customer Name:")
+	def setBirthYear(self):
+		self._customerBirthyear= input("customer Birth Year:")
+	def setAddress(self):
+		self._customerAddress= input("Customer Address:")
+	def setPhone(self):
+		self._customerPhone= input("customer Phone:")
