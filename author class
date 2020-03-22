@@ -1,0 +1,38 @@
+
+class author:
+    id=0
+
+    def __init__(self):
+
+        name1=input("enter name:")
+        phone1=input("enter phone:")
+        EMail1=input("enter E-mail:")
+        address1=input("enter addrees:")
+
+        self._name=name1
+        self._phone=phone1
+        self._Email=EMail1
+        self._addrees=address1
+        author.id+=1
+
+
+    def get_Id(self):
+        return self.id
+    def set_name(self):
+        self._name=input("enter name:")
+    def get_name(self):
+        return self._name
+    def set_phone(self):
+        self._phone=input("enter phone:")
+    def get_phone(self):
+        return self._phone
+    def set_Email(self):
+        self._Email=input("enter E-mail:")
+
+    def get_Email(self):
+        return self._Email
+    def set_addrees(self):
+        self._addrees=input("enter address:")
+
+    def get_address(self):
+        return self._addrees
