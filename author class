@@ -23,10 +23,12 @@ class author:
         return self.id
     def set_name(self):
         self._name=input("enter name:")
+        self._name = re.sub('[0-9]', '  ', self._name)
     def get_name(self):
         return self._name
     def set_phone(self):
         self._phone=input("enter phone:")
+        self._phone = re.sub('[A-Za-z]', ' ', self._phone)
     def get_phone(self):
         return self._phone
     def set_Email(self):
@@ -36,6 +38,7 @@ class author:
         return self._Email
     def set_addrees(self):
         self._addrees=input("enter address:")
+        self._addrees = re.sub('[%$#@!^&*()+=""]', ' ', self._addrees)
 
     def get_address(self):
         return self._addrees
