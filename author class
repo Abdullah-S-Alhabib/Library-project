@@ -1,6 +1,6 @@
-
+import re
 class author:
-    authorID=0
+    id=0
 
     def __init__(self):
 
@@ -8,6 +8,9 @@ class author:
         phone1=input("enter phone:")
         EMail1=input("enter E-mail:")
         address1=input("enter addrees:")
+        name1=re.sub('[0-9]','  ',name1)
+        phone1=re.sub('[A-Za-z]',' ',phone1)
+        address1=re.sub('[%$#@!^&*()+=""]',' ',address1)
 
         self._name=name1
         self._phone=phone1
