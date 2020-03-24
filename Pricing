@@ -1,0 +1,15 @@
+#need to finalize inheritance.
+class Pricing(books):
+	VAT = .05
+	promocodes = ['promo','discounts']
+	postalCharge = 70
+
+
+	def getprice(self,books):
+	  #make sure we got getprice in books.
+		x= books.getprice
+		price = x+x*Pricing.VAT+Pricing.postalCharge
+		promo = input ("type your promo code if you have it, else type in 0: ")
+		if promo in Pricing.promocodes :
+			price -= price*.25
+		return price
