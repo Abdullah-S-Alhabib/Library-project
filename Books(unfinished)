@@ -1,4 +1,13 @@
+'''
+    Have a text file with book info seperated by commas, and each book is in a new line, like this:
+    name1,YOP1,OP1...
+    name2,YOP2,OP2...
+    Then try this to read from file:
+        with open("textFile.txt") as textFile:
+        bookInfo = [line.split() for line in textFile]
+'''
 import re
+        
 class books:
 
     def __init__(self):
