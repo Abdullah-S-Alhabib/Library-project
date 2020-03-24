@@ -1,4 +1,4 @@
-#set author name did not finish it 
+import re
 class books:
 
     def __init__(self):
@@ -6,6 +6,10 @@ class books:
         price1 = input("Enter Book price:")
         YOP1 = input("Enter Book Year of publication:")
         ISBN1 =input("Enter ISBN")
+        name1=re.sub('[0-9]','',name1)
+        price1=re.sub('[A-Za-z,!@#$%^&*()+""]','',price1)
+        YOP1=re.sub('[A-Za-z,!@#$%^&*()+""]','',YOP1)
+
         self.price=price1
         self.YOP=YOP1
         self.ISBN=ISBN1
@@ -19,13 +23,16 @@ class books:
         self.ISBN=input("please enter ISBN:")
     def set_name(self):
         self.name=input("enter name please:")
+        self.name = re.sub('[0-9]', '', self.name)
     def get_name(self):
         return self.name
     def set_price(self):
         self.price=input("Enter price :")
+        self.price = re.sub('[A-Za-z,!@#$%^&*()+""]', '', self.price)
     def get_price(self):
         return self.price
     def set_YOP(self):
         self.YOP=input("please Enter year of publication")
+        self.YOP = re.sub('[A-Za-z,!@#$%^&*()+""]', '', self.YOP)
     def get_YOP(self):
         return self.YOP
