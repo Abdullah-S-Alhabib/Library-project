@@ -1,31 +1,29 @@
 class Books:
-    books = [{"BookName": "Harry Potter1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974570"},
-             {"BookName": "Harry Potter2", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974571"},
-             {"BookName": "Harry Potter3", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974572"},
-             {"BookName": "Harry Potter4", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974573"},
-             {"BookName": "Harry Potter5", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974574"},
-             {"BookName": "Harry Potter6", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974575"},
-             {"BookName": "Harry Potter7", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974576"},
+    books = [{"BookName": "Harry Potter1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974570","Type":"Hard Copy","Year Of publication":"1998"},
+             {"BookName": "Harry Potter2", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974571","Type":"Hard Copy","Year Of publication":"2007"},
+             {"BookName": "Harry Potter3", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974572","Type":"Hard Copy","Year Of publication":"1965"},
+             {"BookName": "Harry Potter4", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974573","Type":"Hard Copy","Year Of publication":"2013"},
+             {"BookName": "Harry Potter5", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974574","Type":"Hard Copy","Year Of publication":"1217"},
+             {"BookName": "Harry Potter6", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974575","Type":"Hard Copy","Year Of publication":"1999"},
+             {"BookName": "Harry Potter7", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974576","Type":"Hard Copy","Year Of publication":"2015"},
              {"BookName": "Lord Of The Ring 1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "TTT",
-              "Purchased": 0,"ISBN":"9974577"},
+              "Purchased": 0,"ISBN":"9974577","Type":"Soft Copy","Year Of publication":"2020"},
              {"BookName": "Lord Of The Ring 2", "Cost": "300", "Publisher": "CR7", "AuthorName": "TTT",
-              "Purchased": 0,"ISBN":"9974578"},
-             {"BookName": "Lord Of The Ring 3", "Cost": "300", "Publisher": "CR7", "AuthorName": "TTT", "Purchased": 0,"ISBN":"9974579"},
-             {"BookName": "The Hobbit 1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974580"},
-             {"BookName": "The Hobbit 2", "Cost": "300", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974581"},
-             {"BookName": "The Hobbit 3", "Cost": "300", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974582"},
-             {"BookName": "James Bond 007 1", "Cost": "4400", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974583"},
-             {"BookName": "James Bond 007 2", "Cost": "110", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974584"},
-             {"BookName": "James Bond 007 3", "Cost": "229", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974585"},
-             {"BookName": "James Bond 007 4", "Cost": "223", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974586"},
-             {"BookName": "James Bond 007 5", "Cost": "456", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974587"},
-             {"BookName": "James Bond 007 6", "Cost": "345", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974588"},
-             {"BookName": "James Bond 007 7", "Cost": "3000", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974589"},
-             {"BookName": "James Bond 007 8", "Cost": "290", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974590"}]
+              "Purchased": 0,"ISBN":"9974578","Type":"Soft Copy","Year Of publication":"2019"},
+             {"BookName": "Lord Of The Ring 3", "Cost": "300", "Publisher": "CR7", "AuthorName": "TTT", "Purchased": 0,"ISBN":"9974579","Type":"Soft Copy","Year Of publication":"2018"},
+             {"BookName": "The Hobbit 1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974580","Type":"Soft Copy","Year Of publication":"1997"},
+             {"BookName": "The Hobbit 2", "Cost": "300", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974581","Type":"Soft Copy","Year Of publication":"1999"},
+             {"BookName": "The Hobbit 3", "Cost": "300", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974582","Type":"Soft Copy","Year Of publication":"1999"},
+             {"BookName": "James Bond 007 1", "Cost": "4400", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974583","Type":"Soft Copy","Year Of publication":"2013"},
+             {"BookName": "James Bond 007 2", "Cost": "110", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974584","Type":"Soft Copy","Year Of publication":"2014"},
+             {"BookName": "James Bond 007 3", "Cost": "229", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974585","Type":"Soft Copy","Year Of publication":"2013"},
+             {"BookName": "James Bond 007 4", "Cost": "223", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974586","Type":"Soft Copy","Year Of publication":"2014"},
+             {"BookName": "James Bond 007 5", "Cost": "456", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974587","Type":"Soft Copy","Year Of publication":"2020"},
+             {"BookName": "James Bond 007 6", "Cost": "345", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974588","Type":"Soft Copy","Year Of publication":"1990"},
+             {"BookName": "James Bond 007 7", "Cost": "3000", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974589","Type":"Soft Copy","Year Of publication":"2019"},
+             {"BookName": "James Bond 007 8", "Cost": "290", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974590","Type":"Soft Copy","Year Of publication":"2020"}]
 
-    def get_Book(self, i):
-        bb = self.books[i]["BookName"], self.books[i]["Publisher"]
-        return bb
+
 
     def purchased(self, i):
         cc = self.books[i]["Purchased"]
@@ -34,5 +32,20 @@ class Books:
     def buy_book(self, i,j):
         x = Books.books[i]['Purchased'] + j
         Books.books[i]['Purchased'] = x
+
+    def getBookInfo(self,i):
+        B=self.books[i]["BookName"] ,self.books[i]["Publisher"],self.books[i]['ISBN'],self.books[i]["Cost"],self.books[i]["Type"],self.books[i]["Year Of publication"],self.books[i]["Purchased"]
+        return B
+
+
+    def all_Books(self):
+
+        for i in range(len(self.books)):
+         for j in range(len(self.books[i])):
+                print(self.books[i]["BookName"], end=' \n')
+
+
+
+
 
 
