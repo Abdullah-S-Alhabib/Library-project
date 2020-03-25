@@ -1,47 +1,30 @@
-'''
-    Have a text file with book info seperated by commas, and each book is in a new line, like this:
-    name1,YOP1,OP1...
-    name2,YOP2,OP2...
-    Then try this to read from file:
-        with open("textFile.txt") as textFile:
-        bookInfo = [line.split() for line in textFile]
-'''
-import re
-        
-class books:
+class Books:
+    Books=[{"BookName":"Harry Poter1","Cost":"4000","Publisher":"CR7","AuthorName":"SR4"},
+           {"BookName":"Harry Poter2","Cost":"300","Publisher":"CR7","AuthorName":"SR4"},
+           {"BookName":"Harry Poter3","Cost":"300","Publisher":"CR7","AuthorName":"SR4"},
+           {"BookName": "Harry Poter4", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4"},
+           {"BookName": "Harry Poter5", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM"},
+           {"BookName": "Harry Poter6", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM"},
+           {"BookName": "Harry Poter7", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM"},
+           {"BookName": "Lord Of The Ring 1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "TTT"},
+           {"BookName": "Lord Of The Rings 2", "Cost": "300", "Publisher": "CR7", "AuthorName": "TTT"},
+           {"BookName": "Lord Of The Ring 3", "Cost": "300", "Publisher": "CR7", "AuthorName": "TTT"},
+           {"BookName": "The Hobbit 1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "ILO"},
+           {"BookName": "The Hobbit 2", "Cost": "300", "Publisher": "CR7", "AuthorName": "ILO"},
+           {"BookName": "The Hobbit 3", "Cost": "300", "Publisher": "CR7", "AuthorName": "ILO"},
+           {"BookName": "James Bond 007 1", "Cost": "4400", "Publisher": "CR7", "AuthorName": "LYON" },
+           {"BookName": "James Bond 007 2", "Cost": "110", "Publisher": "CR7", "AuthorName": "LYON"},
+           {"BookName": "James Bond 007 3", "Cost": "229", "Publisher": "CR7", "AuthorName": "LYON"},
+           {"BookName": "James Bond 007 4", "Cost": "223", "Publisher": "CR7", "AuthorName": "LYON"},
+           {"BookName": "James Bond 007 5", "Cost": "456", "Publisher": "CR7", "AuthorName": "LYON"},
+           {"BookName": "James Bond 007 6", "Cost": "345", "Publisher": "CR7", "AuthorName": "LYON"},
+           {"BookName": "James Bond 007 7", "Cost": "3000", "Publisher": "CR7", "AuthorName": "LYON"},
+           {"BookName": "James Bond 007 8", "Cost": "290", "Publisher": "CR7", "AuthorName": "LYON"}]
+    def get_Book(self,i):
+        bb=self.Books[i]["BookName"],self.Books[i]["Publisher"]
+        return bb
+    def purchased(self,i):
+        cc=self.Books[i]["purchased"]
+        return cc
+    
 
-    def __init__(self):
-        name1 = input("Enter Book name:")
-        price1 = input("Enter Book price:")
-        YOP1 = input("Enter Book Year of publication:")
-        ISBN1 =input("Enter ISBN")
-        name1=re.sub('[0-9]','',name1)
-        price1=re.sub('[A-Za-z,!@#$%^&*()+""]','',price1)
-        YOP1=re.sub('[A-Za-z,!@#$%^&*()+""]','',YOP1)
-
-        self.price=price1
-        self.YOP=YOP1
-        self.ISBN=ISBN1
-        self.name=name1
-
-
-
-    def get_ISBN(self):
-        return self.ISBN
-    def set_ISBN(self):
-        self.ISBN=input("please enter ISBN:")
-    def set_name(self):
-        self.name=input("enter name please:")
-        self.name = re.sub('[0-9]', '', self.name)
-    def get_name(self):
-        return self.name
-    def set_price(self):
-        self.price=input("Enter price :")
-        self.price = re.sub('[A-Za-z,!@#$%^&*()+""]', '', self.price)
-    def get_price(self):
-        return self.price
-    def set_YOP(self):
-        self.YOP=input("please Enter year of publication")
-        self.YOP = re.sub('[A-Za-z,!@#$%^&*()+""]', '', self.YOP)
-    def get_YOP(self):
-        return self.YOP
