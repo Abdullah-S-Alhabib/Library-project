@@ -1,51 +1,104 @@
 class Books:
-    books = [{"BookName": "Harry Potter1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974570","Type":"Hard Copy","Year Of publication":"1998"},
-             {"BookName": "Harry Potter2", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974571","Type":"Hard Copy","Year Of publication":"2007"},
-             {"BookName": "Harry Potter3", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974572","Type":"Hard Copy","Year Of publication":"1965"},
-             {"BookName": "Harry Potter4", "Cost": "300", "Publisher": "CR7", "AuthorName": "SR4", "Purchased": 0,"ISBN":"9974573","Type":"Hard Copy","Year Of publication":"2013"},
-             {"BookName": "Harry Potter5", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974574","Type":"Hard Copy","Year Of publication":"1217"},
-             {"BookName": "Harry Potter6", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974575","Type":"Hard Copy","Year Of publication":"1999"},
-             {"BookName": "Harry Potter7", "Cost": "300", "Publisher": "CR7", "AuthorName": "IIM", "Purchased": 0,"ISBN":"9974576","Type":"Hard Copy","Year Of publication":"2015"},
-             {"BookName": "Lord Of The Ring 1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "TTT",
-              "Purchased": 0,"ISBN":"9974577","Type":"Soft Copy","Year Of publication":"2020"},
-             {"BookName": "Lord Of The Ring 2", "Cost": "300", "Publisher": "CR7", "AuthorName": "TTT",
-              "Purchased": 0,"ISBN":"9974578","Type":"Soft Copy","Year Of publication":"2019"},
-             {"BookName": "Lord Of The Ring 3", "Cost": "300", "Publisher": "CR7", "AuthorName": "TTT", "Purchased": 0,"ISBN":"9974579","Type":"Soft Copy","Year Of publication":"2018"},
-             {"BookName": "The Hobbit 1", "Cost": "4000", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974580","Type":"Soft Copy","Year Of publication":"1997"},
-             {"BookName": "The Hobbit 2", "Cost": "300", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974581","Type":"Soft Copy","Year Of publication":"1999"},
-             {"BookName": "The Hobbit 3", "Cost": "300", "Publisher": "CR7", "AuthorName": "ILO", "Purchased": 0,"ISBN":"9974582","Type":"Soft Copy","Year Of publication":"1999"},
-             {"BookName": "James Bond 007 1", "Cost": "4400", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974583","Type":"Soft Copy","Year Of publication":"2013"},
-             {"BookName": "James Bond 007 2", "Cost": "110", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974584","Type":"Soft Copy","Year Of publication":"2014"},
-             {"BookName": "James Bond 007 3", "Cost": "229", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974585","Type":"Soft Copy","Year Of publication":"2013"},
-             {"BookName": "James Bond 007 4", "Cost": "223", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974586","Type":"Soft Copy","Year Of publication":"2014"},
-             {"BookName": "James Bond 007 5", "Cost": "456", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974587","Type":"Soft Copy","Year Of publication":"2020"},
-             {"BookName": "James Bond 007 6", "Cost": "345", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974588","Type":"Soft Copy","Year Of publication":"1990"},
-             {"BookName": "James Bond 007 7", "Cost": "3000", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974589","Type":"Soft Copy","Year Of publication":"2019"},
-             {"BookName": "James Bond 007 8", "Cost": "290", "Publisher": "CR7", "AuthorName": "LYON", "Purchased": 0,"ISBN":"9974590","Type":"Soft Copy","Year Of publication":"2020"}]
+    #   Bookname =0,cost =1,Publisher =2  authorname =3 ,purchased=4 ,ISBN=5 ,type= 6,Year of publication=7
+    books = [[ "Harry Potter1", "4000","CR7", "SR4", 50000000000,"9974570","Hard Copy","1998"],
+             [ "Harry Potter2", "300","CR9", "SR4", 4900000000,"9974571","Hard Copy","2007"],
+             [ "Harry Potter3", "300","CR10", "SR4", 480000000,"9974572","Hard Copy","1965"],
+             [ "Harry Potter4", "300","CR11", "SR4", 47000000,"9974573","Hard Copy","2013"],
+             [ "Harry Potter5", "300","CR12", "IIM", 4600000,"9974574","Hard Copy","1217"],
+             [ "Harry Potter6", "300","CR13", "IIM", 450000,"9974575","Hard Copy","1999"],
+             [ "Harry Potter7", "300","CR14", "IIM", 440000,"9974576","Hard Copy","2015"],
+             [ "Lord Of The Ring 1", "4000","CR15", "TTT",
+              430000,"9974577","Soft Copy","2020"],
+             [ "Lord Of The Ring 2", "300","CR1", "TTT",
+              420000,"9974578","Soft Copy","2019"],
+             [ "Lord Of The Ring 3", "300","CR2", "TTT", 410000,"9974579","Soft Copy","2018"],
+             [ "The Hobbit 1", "4000","Cc", "ILO", 400000,"9974580","Soft Copy","1997"],
+             [ "The Hobbit 2", "300","RR7", "ILO", 390000,"9974581","Soft Copy","1999"],
+             [ "The Hobbit 3", "300","MR7", "ILO", 380000,"9974582","Soft Copy","1999"],
+             [ "James Bond 007 1", "4400","TB7", "LYON", 370000,"9974583","Soft Copy","2013"],
+             [ "James Bond 007 2", "110","LB7", "LYON", 360000,"9974584","Soft Copy","2014"],
+             [ "James Bond 007 3", "229","LBJ7", "LYON", 350000,"9974585","Soft Copy","2013"],
+             [ "James Bond 007 4", "223","JAN7", "LYON", 340000,"9974586","Soft Copy","2014"],
+             [ "James Bond 007 5", "456","FF7", "LYON", 330000,"9974587","Soft Copy","2020"],
+             [ "James Bond 007 6", "345","JOEY7", "LYON", 320000,"9974588","Soft Copy","1990"],
+             [ "James Bond 007 7", "3000","RAY7", "LYON", 310000,"9974589","Soft Copy","2019"],
+             [ "James Bond 007 8", "290","TUL7", "LYON", 300000,"9974590","Soft Copy","2020"]]
 
 
 
     def purchased(self, i):
-        cc = self.books[i]["Purchased"]
+        cc = self.books[i][4]
         return cc
 
-    def buy_book(self, i,j):
-        x = Books.books[i]['Purchased'] + j
-        Books.books[i]['Purchased'] = x
-
-    def getBookInfo(self,i):
-        B=self.books[i]["BookName"] ,self.books[i]["Publisher"],self.books[i]['ISBN'],self.books[i]["Cost"],self.books[i]["Type"],self.books[i]["Year Of publication"],self.books[i]["Purchased"]
-        return B
-
+    def getcost(self,i):
+        return int(Books.books[i][1])
 
     def all_Books(self):
 
         for i in range(len(self.books)):
          for j in range(len(self.books[i])):
-                print(self.books[i]["BookName"], end=' \n')
+                print(self.books[i][0], end=' \n')
+
+    def getBookInfo(self, i):
+        return  (self.books[i][0], self.books[i][2],
+                  self.books[i][5], self.books[i][1], self.books[i][6],
+                   self.books[i][7],self.books[i][4])
+
+
+    def getMosSoldtBook(self):
+
+        for i in range(19):
+           print("Book Name:",self.books[i][0]," sold :",self.books[i][4]," publisher:",self.books[i][2])
 
 
 
 
+class Pricing(Books):
+    re=[0]
+    VAT = .05
+    promocodes = ['promo', 'discounts']
+    postalCharge = 70
+
+    def getprice(self,i,j):
+
+        x = int(Books.books[i][1])
+        price = x + x * Pricing.VAT + Pricing.postalCharge
+        promo = input("type your promo code if you have it, else type in 0: ")
+        if promo in Pricing.promocodes:
+            price -= price * .25
+        x = Pricing.re[0] + price
+        Pricing.re[0] = x
+        t = Books.books[i][4] + j
+        Books.books[i][4] = t
+
+        self.re+[Books.books[i][0]]
+        self.re+[Books.books[i][1]]
+
+        self.re.insert(1,Books.books[i][0])
+        self.re.insert(2,Books.books[i][1])
+
+        return price
+
+
+    def getAllOprstion(self):
+        i=1
+        run=True
+
+        for i in range(100):
+            print(self.re[i])
+
+        return self.re[0]
+
+
+'''
+def main():
+    f=open("text unused.txt","w+")
+    for i in range(10):
+        f.write("there is a new customer  %d\r\n" %(i+1))
+        f.close()
+    if __name__=="__main__":
+        main()
+
+'''
 
 
