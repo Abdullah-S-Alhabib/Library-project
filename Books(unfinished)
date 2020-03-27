@@ -35,9 +35,8 @@ class Books:
 
     def all_Books(self):
 
-        for i in range(len(self.books)):
-         for j in range(len(self.books[i])):
-                print(self.books[i][0], end=' \n')
+        for i in range(20):
+            print( self.books[i][0])
 
     def getBookInfo(self, i):
         return  (self.books[i][0], self.books[i][2],
@@ -124,4 +123,3 @@ obj.getprice(2,5)
 obj.getprice(4,5)
 
 obj.getAllOprstion()
-
