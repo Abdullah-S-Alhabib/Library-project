@@ -81,13 +81,13 @@ class Pricing(Books):
 
 
     def getAllOprstion(self):
-        i=1
-        run=True
+        self.i=1
 
-        for i in range(100):
-            print(self.re[i])
 
-        return self.re[0]
+        for self.i in range(1,13):
+            print(self.re[self.i])
+
+        return print("total is",self.re[0])
 
 
 '''
@@ -100,5 +100,28 @@ def main():
         main()
 
 '''
+'''
 
+class bcolors:
+    HEADER='\033[95m'
+    OKBLUE='\033[94m'
+    OKGREEN='\033[92m'
+    WARNING='\033[93m'
+    FAIL='\033[91m'
+    ENDC='\033[0m'
+    BOLD='\033[1m'
+    UNDERLINE='\033[4m'
+print(bcolors.FAIL+bcolors.BOLD+"an enemy attacks"+bcolors.ENDC)
+
+
+'''
+obj=Pricing()
+obj.getprice(15,5)
+obj.getprice(17,5)
+obj.getprice(15,5)
+obj.getprice(5,5)
+obj.getprice(2,5)
+obj.getprice(4,5)
+
+obj.getAllOprstion()
 
