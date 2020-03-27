@@ -54,7 +54,7 @@ def layouts():
                    [sg.Button('List books', size=(25, 1))],
                    [sg.Button('Cart', size=(25, 1))],
                    [sg.Button('Sign out', size=(25, 1))]]
-    layout_menu_admin = [[sg.Text('')],
+    layout_menu_admin = [[sg.Button('Add book', size=(25, 1))],
                          [sg.Button('Statistics', size=(25, 1))],
                          [sg.Button('Log out', size=(25, 1))]]
 
