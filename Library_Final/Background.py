@@ -1,201 +1,166 @@
 import PySimpleGUI as sg
 
-from Files.Background import Books, Pricing, sortBooks, sortPublishers, getMostProfitBook, getMostPopularBook
 
-usernames = ['user', 'user2']
-passwords = ['user', 'user2']
-
-
-def signup(username, password):
-    usernames.append(username)
-    passwords.append(password)
+def getrawcost(i):
+    return int(Books.books[i][8])
 
 
-def signin(username, password):
-    i = 0
-    for i in range(len(usernames)):
-        if username == usernames[i]:
-            break
-    if password == passwords[i]:
-        return True
+def getcost(i):
+    return int(Books.books[i][1])
+
+
+def getMostPopularBook():
+    best = 0
+    bookName = ''
+    for i in range(len(Books.books)):
+        if int(Books.books[i][4]) > best:
+            best = Books.books[i][4]
+            bookName = Books.books[i][0]
     else:
-        return False
+        if best == 0:
+            return 'N/A'
+    return bookName
 
 
-memberName = 'name'
-
-obj = Books()
-
-pricingobj = Pricing()
-
-
-def getindex(vals):
-    booknames = obj.all_Books()
-    for i in range(len(booknames)):
-        if vals == booknames[i]:
-            return i
+def sortPublishers():
+    newPublishers = [[' ', 0] for i in range(len(Books.books))]
+    for i in range(len(Books.books)):
+        newPublishers[i][0] = Books.books[i][2]
+        newPublishers[i][1] = int(Books.books[i][4])
+    sorted(newPublishers, key=lambda j: j[1])
+    for i in range(len(newPublishers)):
+        newPublishers[i] = ' '.join([str(i + 1), ':', newPublishers[i][0], 'with', str(newPublishers[i][1]), ' sales,'])
+    return ' '.join(newPublishers)
 
 
-def layouts():
-    layout_main = [[sg.Text('Welcome to the library! ')],
-                   [sg.Button('Login'), sg.Button('Sign up'), sg.Button('Cancel')]]
-
-    layout_login = [[sg.Text('Name: ',size=(10,1)), sg.InputText(key='name')],
-                    [sg.Text('Password: ',size=(10,1)), sg.InputText(password_char='*', key='pass')],
-                    [sg.Button('Confirm'), sg.Button('Return to signup')]]
-
-    layout_signup = [[sg.Text('Name:', size=[10, 1]), sg.InputText(key='suname')],
-                     [sg.Text('Password:', size=[10, 1]), sg.InputText(password_char='*', key='supass')],
-                     [sg.Text('Address:', size=[10, 1]), sg.InputText(key='suaddress')],
-                     [sg.Text('Phone:', size=[10, 1]), sg.InputText(key='suphone')],
-                     [sg.Button('Confirm and login'), sg.Button('Return to login')]]
-
-    layout_menu = [[sg.Text('Book of the day!: Lord of the ring 1 (-25%!)')],
-                   [sg.Button('List books', size=(25, 1))],
-                   [sg.Button('Cart', size=(25, 1))],
-                   [sg.Button('Sign out', size=(25, 1))]]
-    layout_menu_admin = [[sg.Button('Add book', size=(25, 1))],
-                         [sg.Button('Statistics', size=(25, 1))],
-                         [sg.Button('Log out', size=(25, 1))]]
-
-    layout_books = [[sg.Combo(obj.all_Books(), default_value='Select book', size=(31, 1), key='Choice')],
-                    [sg.Spin([i for i in range(1, 51)], initial_value=1, size=(2, 1), key='amount'), sg.Text('Amount')],
-                    [sg.Button('Add to cart'), sg.Button('Show book info'), sg.Button('Return')]]
-
-    layout_cart = [[sg.Output((70, 20))],
-                   [sg.Button('Proceed and buy'), sg.Button('Return to menu')]]
-
-    layout_stats = [[sg.Text('Total sales: ',size=(25,1)), sg.Text(obj.total_sales, size=(20, 1), key='totalSales')],
-                    [sg.Text('Total Profit/loss:',size=(25,1)), sg.Text(obj.total_profit, size=(20, 1), key='totalProfit')],
-                    [sg.Text('Most popular book: ',size=(25,1)), sg.Text(getMostPopularBook(), size=(20, 1), key='getMostPopBook')],
-                    [sg.Text('Highest profit: ',size=(25,1)), sg.Text(getMostProfitBook(), size=(20, 1), key='getMostProfit')],
-                    [sg.Text('Publisher ranking: ',size=(25,1)),
-                     sg.Multiline(sortPublishers(), key='sortPublishers')],
-                    [sg.Text('Book rankin based on profit: ',size=(25,1)), sg.Multiline(sortBooks(), key='sortBooks')],
-                    [sg.Button('Return to admin menu')]]
-
-    mainCol = sg.Column(layout_main, key='panel_main')
-    loginCol = sg.Column(layout_login, key='panel_login', visible=False)
-    signupCol = sg.Column(layout_signup, key='panel_signup', visible=False)
-    menuCol = sg.Column(layout_menu, key='panel_menu', visible=False)
-    booksCol = sg.Column(layout_books, key='panel_books', visible=False)
-    cartCol = sg.Column(layout_cart, key='panel_cart', visible=False)
-    adminCol = sg.Column(layout_menu_admin, key='panel_admin', visible=False)
-    statsCol = sg.Column(layout_stats, key='panel_stats', visible=False)
-
-    panel = [
-        [sg.Pane([mainCol, loginCol, signupCol, menuCol, booksCol, cartCol, adminCol, statsCol], relief=sg.RELIEF_FLAT)]
-    ]
-    return panel
+def sortBooks():
+    newBooks = [[' ', 0] for i in range(len(Books.books))]
+    for i in range(len(Books.books)):
+        newBooks[i][0] = Books.books[i][0]
+        newBooks[i][1] = int(Books.books[i][9])
+    sorted(newBooks, key=lambda j: j[1])
+    for i in range(len(newBooks)):
+        newBooks[i] = ' '.join([str(i + 1), ':', newBooks[i][0], 'with $', str(newBooks[i][1]), ' total profit,'])
+    return ' '.join(newBooks)
 
 
-sg.theme('DarkAmber')  # Add a touch of color
-# All the stuff inside your window.
-# Create the Window
-window = sg.Window('Book library',default_element_size=(25,1)).Layout(layouts())
+def getMostProfitBook():
+    best = 0
+    bookName = ' '
+    for i in range(len(Books.books)):
+        if int(Books.books[i][9]) > best:
+            best = Books.books[i][9]
+            bookName = Books.books[i][0]
+    else:
+        if best == 0:
+            return 'N/A'
+    return bookName
 
 
-# Event Loop to process "events" and get the "values" of the inputs
-def mainUI():
-    while True:
-        event, values = window.read()
+class Books:
+    # Bookname =0     ,cost =1,Publisher =2,authorname =3,purchased=4 ,ISBN=5 ,type= 6,Year of publication=7,
+    # Book Original Price=8, Total Profit=9
+    with open(sg.popup_get_file('Select the file that contains books info')) as textFile:
+        books = [line.split() for line in textFile]
 
-        if event in (None, 'Cancel'):  # if user closes window or clicks cancel
-            break
-        if event in ('Login', 'Return to login', 'Sign out', 'Log out'):
-            window['panel_main'].update(visible=False)
-            window['panel_signup'].update(visible=False)
-            window['panel_login'].update(visible=True)
-            window['panel_menu'].update(visible=False)
-            window['panel_books'].update(visible=False)
-            window['panel_cart'].update(visible=False)
-            window['panel_admin'].update(visible=False)
-        if event in ('Sign up', 'Return to signup'):
-            window['panel_main'].update(visible=False)
-            window['panel_signup'].update(visible=True)
-            window['panel_login'].update(visible=False)
-            window['panel_menu'].update(visible=False)
-            window['panel_books'].update(visible=False)
-            window['panel_cart'].update(visible=False)
-        if event in ('Confirm', 'Return to admin menu'):
-            if values['name'] == 'admin' and values['pass'] == 'admin':
-                window['totalSales'].update(obj.total_sales)
-                window['totalProfit'].update(obj.total_profit)
-                window['getMostPopBook'].update(getMostPopularBook())
-                window['getMostProfit'].update(getMostProfitBook())
-                window['panel_main'].update(visible=False)
-                window['panel_signup'].update(visible=False)
-                window['panel_login'].update(visible=False)
-                window['panel_menu'].update(visible=False)
-                window['panel_books'].update(visible=False)
-                window['panel_cart'].update(visible=False)
-                window['panel_admin'].update(visible=True)
-                window['panel_stats'].update(visible=False)
-            elif signin(values['name'], values['pass']):
-                window['panel_main'].update(visible=False)
-                window['panel_signup'].update(visible=False)
-                window['panel_login'].update(visible=False)
-                window['panel_menu'].update(visible=True)
-                window['panel_books'].update(visible=False)
-                window['panel_cart'].update(visible=False)
-            else:
-                sg.popup('Wrong login credentials!')
-        if event in ('Return', 'Return to menu'):
-            window['panel_main'].update(visible=False)
-            window['panel_signup'].update(visible=False)
-            window['panel_login'].update(visible=False)
-            window['panel_menu'].update(visible=True)
-            window['panel_books'].update(visible=False)
-            window['panel_cart'].update(visible=False)
-        if event == 'Cart':
-            if pricingobj.getTotal() > 0:
-                print('Total cost: $', pricingobj.getTotal())
-            window['panel_main'].update(visible=False)
-            window['panel_signup'].update(visible=False)
-            window['panel_login'].update(visible=False)
-            window['panel_menu'].update(visible=False)
-            window['panel_books'].update(visible=False)
-            window['panel_cart'].update(visible=True)
-        if event == 'List books':
-            window['panel_main'].update(visible=False)
-            window['panel_signup'].update(visible=False)
-            window['panel_login'].update(visible=False)
-            window['panel_menu'].update(visible=False)
-            window['panel_books'].update(visible=True)
-            window['panel_cart'].update(visible=False)
-        if event == 'Add to cart':
-            print('\nBook title: ', values['Choice'], ' , Amount: ', values['amount'], ' , Price: $',
-                  pricingobj.buyBook(getindex(values['Choice']), values['amount']))
-        if event == 'Show book info':
-            sg.popup_scrolled(obj.getBookInfo(getindex(values['Choice'])))
-        if event == 'Proceed and buy':
-            obj.total_sales += 1
-            sg.popup('Success!, the book will be shipped to your address as soon as possible',
-                     title='Purchase successful!')
-            pricingobj.resetTotalPrice()
-            print('\n', '=' * 60, '\n')
-            window.Refresh()
-        if event == 'Confirm and login':
-            signup(values['suname'], values['supass'])
-            window['panel_main'].update(visible=False)
-            window['panel_signup'].update(visible=False)
-            window['panel_login'].update(visible=True)
-            window['panel_menu'].update(visible=False)
-            window['panel_books'].update(visible=False)
-            window['panel_cart'].update(visible=False)
-        if event == 'Statistics':
-            window['sortPublishers'].update(sortPublishers())
-            window['sortBooks'].update(sortBooks())
-            window['panel_main'].update(visible=False)
-            window['panel_signup'].update(visible=False)
-            window['panel_login'].update(visible=False)
-            window['panel_menu'].update(visible=False)
-            window['panel_books'].update(visible=False)
-            window['panel_cart'].update(visible=False)
-            window['panel_admin'].update(visible=False)
-            window['panel_stats'].update(visible=True)
+    for i in range(len(books)):
+        books[i].extend(['0'])
+    most_sell_amnt = 0
+    most_sell_value = 0
+    total_books_sold = 0
+    total_sales = 0
+    net_gain = 0
+    total_cost = 0
 
-    window.close()
+    def __init__(self):
+        print('Constructor Called')
+        self.__bookPublisher=0
+
+    def __del__(self):
+        print('Destructor called')
+
+    for i in range(len(books)):
+        total_cost += int(books[i][8])
+    total_profit = net_gain - total_cost
+
+    def getInfo(self):
+        return Books.books[0][2]
+    def getInfo(self,index):
+        return Books.books[index][2]
 
 
-mainUI()
+
+    def purchased(self, i):
+        cc = self.books[i][4]
+        return cc
+
+    def all_Books(self):
+        vals = []
+
+        for i in range(len(self.books)):
+            vals.insert(i, self.books[i][0])
+        return vals
+
+    # Bookname =0     ,cost =1,Publisher =2,authorname =3,purchased=4 ,ISBN=5 ,type= 6,Year of publication=7
+    def getBookInfo(self, i):
+        return ' '.join(['Title: ', self.books[i][0], ', Publisher: ', self.books[i][2],
+                         ', ISBN: ', self.books[i][5], ', Sell price: ', '$' + self.books[i][1], ', Type: ',
+                         self.books[i][6],
+                         ', Year of publication: ', self.books[i][7], ', Times purchased: ', str(self.books[i][4]),
+                         ',Cost: ', '$' + self.books[i][8]])
+
+    def getMosSoldtBook(self):
+
+        for i in range(19):
+            print("Book Name:", self.books[i][0], " sold :", self.books[i][4], " publisher:", self.books[i][2])
+
+
+class Pricing(Books):
+    re = [0]
+    VAT = .05
+    promocodes = ['promo', 'discounts']
+    postalCharge = 70
+
+    total = 0
+
+    def buyBook(self, index, amount):
+        x = int(Books.books[index][1])
+        price = float((x + x * Pricing.VAT + Pricing.postalCharge) * amount)
+        # promo = input("type your promo code if you have it, else type in 0: ")
+        # if promo in Pricing.promocodes:
+        #   price -= price * .25
+        x = Pricing.re[0] + price
+        Pricing.re[0] = x
+        t = int(Books.books[index][4]) + amount
+        Books.books[index][4] = t
+
+        self.re + [Books.books[index][0]]
+        self.re + [Books.books[index][1]]
+
+        self.re.insert(1, Books.books[index][0])
+        self.re.insert(2, Books.books[index][1])
+
+        self.total += price
+        y = int(Books.books[index][9])
+        Books.total_sales += amount
+        Books.books[index][9] = y + price
+        Books.total_profit += price - getrawcost(index)
+
+        return price
+
+    def getAllOprstion(self):
+        i = 1
+        run = True
+
+        for i in range(100):
+            print(self.re[i])
+
+        return self.re[0]
+
+    def getTotal(self):
+        return self.total
+
+    def resetTotalPrice(self):
+        self.total = 0
+        return
+
